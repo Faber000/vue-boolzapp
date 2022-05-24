@@ -23,52 +23,80 @@
         <!--corpo della pagina-->
         <main>
 
-            <!--contenitore principale-->
-            <div class="main-container">
+            <div id="app">
 
-                <!--colonna delle chat-->
-                <div class="col-left">
-                    <div class="user-header">
-                        <div class="user d-flex align-items-center">
-                            <div class="avatar"></div>
-                            <div class="name">Fabio</div>
+                <!--contenitore principale-->
+                <div class="main-container">
+
+                    <!--colonna delle chat-->
+                    <div class="col-left">
+
+                        <!--account section-->
+                        <div class="user-header">
+                            <div class="user d-flex align-items-center">
+                                <div class="avatar"></div>
+                                <div class="name">Fabio</div>
+                            </div>
+                            <div class="settings d-flex justify-content-between">
+                                <i class="fa-solid fa-circle-notch"></i>
+                                <i class="fa-solid fa-message"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                        <div class="settings d-flex justify-content-between">
-                            <i class="fa-solid fa-circle-notch"></i>
-                            <i class="fa-solid fa-message"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <!--account section-->
+
+                        <!--notification section-->
+                        <div class="notifications">
+                            <div class="icon-notifications">
+                                <i class="fa-solid fa-bell-slash"></i>
+                            </div>
+                            <div class="text">
+                                <div class="text-1">Ricevi notifiche di nuovi messaggi</div>
+                                <div class="text-2">attiva notifiche desktop</div>
+                            </div>
                         </div>
+                        <!--notification section-->
+
+                        <!--search section-->
+                        <div class="search-bar">
+                            <div class="search-bar-div">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <input placeholder="cerca o inizia una nuova chat" type="text">
+                            </div>
+                        </div>
+                        <!--search section-->
+
+                        <!--chats section-->
+                        <div class="chats-container">
+                            <div v-for="(contact, index) in contacts" class="chat d-flex">
+                                <div class="avatar">
+                                    <img class="avatar-img" :src="`./img/avatar${contact.avatar}.jpg`" alt="">
+                                </div>
+                                <div class="message">
+                                    <div class="name">{{contact.name}}</div>
+                                    <div class="text"><small class="text-secondary" >ultimo messaggio inviato</small></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--chats section-->
+                        
                     </div>
-                    <div class="notifications">
-                        <div class="icon-notifications">
-                            <i class="fa-solid fa-bell-slash"></i>
-                        </div>
-                        <div class="text">
-                            <div class="text-1">Ricevi notifiche di nuovi messaggi</div>
-                            <div class="text-2">attiva notifiche desktop</div>
-                        </div>
+                    <!--colonna delle chat-->
+
+                    <!--chat attualmente aperta-->
+                    <div class="col-right">
+                        <div class="chat-header"></div>
+                        <div class="chat-box"></div>
+                        <div class="chat-footer"></div>
                     </div>
-                    <div class="search-bar">
-                        <div class="search-bar-div">
-                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                            <input placeholder="cerca o inizia una nuova chat" type="text">
-                        </div>
-                    </div>
-                    <div class="chats-container"></div>
+                    <!--chat attualmente aperta-->
+
                 </div>
-                <!--colonna delle chat-->
-
-                <!--chat attualmente aperta-->
-                <div class="col-right">
-                    <div class="chat-header"></div>
-                    <div class="chat-box"></div>
-                    <div class="chat-footer"></div>
-                </div>
-                <!--chat attualmente aperta-->
-
+                <!--contenitore principale-->
+             
             </div>
-            <!--contenitore principale-->
 
+            <script src="main.js"></script>
         </main>
         <!--corpo della pagina-->
 

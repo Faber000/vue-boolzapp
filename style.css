@@ -138,3 +138,15 @@ i {
     height: 100%;
     border: none;
 }
+
+.chat {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    background-color: #FAFAFA;
+}
+
+.avatar-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
