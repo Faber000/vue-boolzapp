@@ -35,7 +35,7 @@
                         <div class="user-header">
                             <div class="user d-flex align-items-center">
                                 <div class="avatar"></div>
-                                <div class="name">Fabio</div>
+                                <div class="name px-1">Fabio</div>
                             </div>
                             <div class="settings d-flex justify-content-between">
                                 <i class="fa-solid fa-circle-notch"></i>
@@ -70,7 +70,7 @@
                         <div class="chats-container">
                             <div v-for="(contact, index) in contacts" class="chat d-flex">
                                 <div class="avatar">
-                                    <img class="avatar-img" :src="`./img/avatar${contact.avatar}.jpg`" alt="">
+                                    <img class="avatar-img" :src="`img/avatar${contact.avatar}.jpg`" alt="">
                                 </div>
                                 <div class="message">
                                     <div class="name">{{contact.name}}</div>
@@ -85,9 +85,32 @@
 
                     <!--chat attualmente aperta-->
                     <div class="col-right">
-                        <div class="chat-header"></div>
+                        <div class="chat-header d-flex align-items-center justify-content-between px-2">
+                            <div class="d-flex">
+                                <div class="avatar">
+                                    <img class="avatar-img" src="img/avatar_2.jpg" alt="">
+                                </div> 
+                                <div class="mx-2">
+                                    <div class="name-chat">Michele</div>
+                                    <div class="ultimo-accesso"><small class="text-secondary" >ultimo accesso: ieri</small></div>
+                                </div>
+                            </div>
+                            <div class="settings d-flex justify-content-between">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i class="fa-solid fa-paperclip"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
                         <div class="chat-box"></div>
-                        <div class="chat-footer"></div>
+                        <div class="chat-footer d-flex justify-content-center align-items-center">
+                            <div class="icon-footer d-flex justify-content-center align-items-center">
+                                <i class="fa-solid fa-face-smile"></i>
+                            </div>
+                            <input class="px-3" placeholder="Scrivi un messaggio" type="text">
+                            <div class="icon-footer d-flex justify-content-center align-items-center">
+                                <i class="fa-solid fa-microphone"></i>
+                            </div>
+                        </div>
                     </div>
                     <!--chat attualmente aperta-->
 
