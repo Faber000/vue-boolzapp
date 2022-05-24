@@ -32,9 +32,6 @@ body {
 
 .col-right {
     width: 65%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .user-header, .notifications, .chat-header, .chat-footer {
@@ -50,4 +47,9 @@ body {
 .chats-container {
     height: calc(100% - 130px);
     border: 2px solid blue;
+}
+
+.chat-box {
+    height: calc(100% - 100px);
+    border: 2px solid yellow;
 }
