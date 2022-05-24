@@ -21,9 +21,7 @@ body {
 }
 
 .col-left, .col-right {
-    background-color: grey;
     height: 700px;
-    border: 2px solid red;
 }
 
 .col-left {
@@ -34,22 +32,62 @@ body {
     width: 65%;
 }
 
+.user-header {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .user-header, .notifications, .chat-header, .chat-footer {
     height: 50px;
-    border: 2px solid blue;
+}
+
+.user-header, .chat-header {
+    background-color: #E6DFD6;
+}
+
+.chat-header {
+    border-left: 1px solid lightgray;
+}
+
+.chat-footer {
+    background-color: #F3EEEA;
+}
+
+.notifications {
+    background-color: #8EDAFC;
 }
 
 .search-bar {
     height: 30px;
-    border: 2px solid blue;
+    background-color: #FAFAFA;
 }
 
 .chats-container {
     height: calc(100% - 130px);
-    border: 2px solid blue;
 }
 
 .chat-box {
     height: calc(100% - 100px);
-    border: 2px solid yellow;
+    background-image: url("img/mine.jpg");
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-image: url("img/avatar_3.jpg");
+    background-size: contain;
+    margin-right: 5px;
+}
+
+.settings {
+    display: flex;
+    width: 80px;
+    padding-right: 20px;
+}
+
+i {
+    color: grey;
 }
