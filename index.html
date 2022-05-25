@@ -68,11 +68,11 @@
 
                         <!--chats section-->
                         <div class="chats-container">
-                            <div v-for="(contact, index) in contacts" class="chat d-flex">
+                            <div @click="showMessages(index)" v-for="(contact, index) in contacts" class="chat d-flex">
                                 <div class="avatar">
                                     <img class="avatar-img" :src="`img/avatar${contact.avatar}.jpg`" alt="">
                                 </div>
-                                <div class="message">
+                                <div class="contact">
                                     <div class="name">{{contact.name}}</div>
                                     <div class="text"><small class="text-secondary" >ultimo messaggio inviato</small></div>
                                 </div>
@@ -85,13 +85,21 @@
 
                     <!--chat attualmente aperta-->
                     <div class="col-right">
+
+                        <!--info contatto chat-->
                         <div class="chat-header d-flex align-items-center justify-content-between px-2">
                             <div class="d-flex">
-                                <div class="avatar">
-                                    <img class="avatar-img" src="img/avatar_2.jpg" alt="">
-                                </div> 
+                                <div v-for="contact in contacts">
+                                    <div v-if="contact.visible">
+                                        <div class="avatar">
+                                            <img class="avatar-img" :src="`img/avatar${contact.avatar}.jpg`" alt="">
+                                        </div> 
+                                    </div>
+                                </div>
                                 <div class="mx-2">
-                                    <div class="name-chat">Michele</div>
+                                    <div v-for="contact in contacts">
+                                        <div v-if="contact.visible" class="name-chat">{{contact.name}}</div>
+                                    </div>
                                     <div class="ultimo-accesso"><small class="text-secondary" >ultimo accesso: ieri</small></div>
                                 </div>
                             </div>
@@ -101,7 +109,22 @@
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
                         </div>
-                        <div class="chat-box"></div>
+                        <!--info contatto chat-->
+
+                        <!--contenitore della chat-->
+                        <div class="chat-box">
+                            <div v-for="contact in contacts">
+                                <div v-if="contact.visible">
+                                    <div class="message" v-for="message in contact.messages">
+                                        <div class="sent" v-if="message.status=='sent'">{{message.message}}</div>
+                                        <div v-else class="received">{{message.message}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--contenitore della chat-->
+
+                        <!--sezione messaggio-->
                         <div class="chat-footer d-flex justify-content-center align-items-center">
                             <div class="icon-footer d-flex justify-content-center align-items-center">
                                 <i class="fa-solid fa-face-smile"></i>
@@ -111,6 +134,8 @@
                                 <i class="fa-solid fa-microphone"></i>
                             </div>
                         </div>
+                        <!--sezione messaggio-->
+
                     </div>
                     <!--chat attualmente aperta-->
 
