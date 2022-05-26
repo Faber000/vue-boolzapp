@@ -89,16 +89,12 @@
                         <!--info contatto chat-->
                         <div class="chat-header d-flex align-items-center justify-content-between px-2">
                             <div class="d-flex">
-                                <div v-for="contact in contacts">
-                                    <div v-if="contact.visible">
-                                        <div class="avatar">
-                                            <img class="avatar-img" :src="`img/avatar${contact.avatar}.jpg`" alt="">
-                                        </div> 
-                                    </div>
-                                </div>
+                                <div class="avatar">
+                                    <img class="avatar-img" :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" alt="">
+                                </div> 
                                 <div class="mx-2">
-                                    <div v-for="contact in contacts">
-                                        <div v-if="contact.visible" class="name-chat">{{contact.name}}</div>
+                                    <div>
+                                        {{contacts[currentIndex].name}}
                                     </div>
                                     <div class="ultimo-accesso"><small class="text-secondary" >ultimo accesso: ieri</small></div>
                                 </div>
@@ -113,12 +109,8 @@
 
                         <!--contenitore della chat-->
                         <div class="chat-box">
-                            <div v-for="contact in contacts">
-                                <div v-if="contact.visible">
-                                    <div class="message" v-for="message in contact.messages">
-                                        <div :class="message.status">{{message.message}}</div>
-                                    </div>
-                                </div>
+                            <div class="message" v-for="message in contacts[currentIndex].messages">
+                                <div :class="message.status">{{message.message}}</div>
                             </div>
                         </div>
                         <!--contenitore della chat-->

@@ -1,7 +1,8 @@
 const app = new Vue ({
     el: '#app',
     data: {
-        message: "",
+
+        currentIndex: 0,
         input: '',
         contacts: [
             {
@@ -169,14 +170,11 @@ const app = new Vue ({
     }, 
     methods: {
         showMessages(index) {
-            for(let i=0; i < this.contacts.length; i++) {
-                this.contacts[i].visible = false;
-            }
-            this.contacts[index].visible = true;
+            this.currentIndex = index;
         },
 
         send() {
             
-        }
+        },
     }
 });
