@@ -1,6 +1,8 @@
 const app = new Vue ({
     el: '#app',
     data: {
+        message: "",
+        input: '',
         contacts: [
             {
                 name: 'Michele',
@@ -171,6 +173,10 @@ const app = new Vue ({
                 this.contacts[i].visible = false;
             }
             this.contacts[index].visible = true;
+        },
+
+        send() {
+            
         }
     }
 });
