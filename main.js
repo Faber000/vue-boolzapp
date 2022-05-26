@@ -168,7 +168,7 @@ const app = new Vue ({
         ]
     }, 
     methods: {
-        
+
         showMessages(index) {
             this.currentIndex = index;
         },
@@ -193,6 +193,11 @@ const app = new Vue ({
                 date: null,
             }
             this.contacts[this.currentIndex].messages.push(obj);
+        },
+    
+        lastMessage(index) {
+            let position = this.contacts[index].messages.length -1;
+            return this.contacts[index].messages[position].message;
         }
-    }
+    },
 });
