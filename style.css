@@ -78,7 +78,7 @@ body {
 .chat-box {
     height: calc(100% - 100px);
     background-image: url("img/mine.jpg");
-    padding: 50px;
+    padding: 80px;
 }
 
 .avatar {

@@ -1,7 +1,6 @@
 const app = new Vue ({
     el: '#app',
     data: {
-
         currentIndex: 0,
         input: '',
         contacts: [
@@ -169,12 +168,31 @@ const app = new Vue ({
         ]
     }, 
     methods: {
+        
         showMessages(index) {
             this.currentIndex = index;
         },
 
         send() {
+            obj = {
+                message: this.input,
+                status: 'sent',
+                date: null,
+            }
             
+            this.contacts[this.currentIndex].messages.push(obj);
+            this.input = '';
+
+            setTimeout(this.receiveMessage, 2000);
         },
+
+        receiveMessage() {
+            obj = {
+                message: 'ok!',
+                status: 'received',
+                date: null,
+            }
+            this.contacts[this.currentIndex].messages.push(obj);
+        }
     }
 });

@@ -28,10 +28,10 @@
                 <!--contenitore principale-->
                 <div class="main-container">
 
-                    <!--colonna delle chat-->
+                    <!--colonna sinistra-->
                     <div class="col-left">
 
-                        <!--account section-->
+                        <!--sezione account-->
                         <div class="user-header">
                             <div class="user d-flex align-items-center">
                                 <div class="avatar"></div>
@@ -43,9 +43,9 @@
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
                         </div>
-                        <!--account section-->
+                        <!--sezione account-->
 
-                        <!--notification section-->
+                        <!--sezione notifiche-->
                         <div class="notifications">
                             <div class="icon-notifications">
                                 <i class="fa-solid fa-bell-slash"></i>
@@ -55,18 +55,18 @@
                                 <div class="text-2">attiva notifiche desktop</div>
                             </div>
                         </div>
-                        <!--notification section-->
+                        <!--sezione notifiche-->
 
-                        <!--search section-->
+                        <!--sezione ricerca-->
                         <div class="search-bar">
                             <div class="search-bar-div">
                                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
                                 <input placeholder="cerca o inizia una nuova chat" type="text">
                             </div>
                         </div>
-                        <!--search section-->
+                        <!--sezione ricerca-->
 
-                        <!--chats section-->
+                        <!--lista delle chat-->
                         <div class="chats-container">
                             <div @click="showMessages(index)" v-for="(contact, index) in contacts" class="chat d-flex">
                                 <div class="avatar">
@@ -78,10 +78,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!--chats section-->
+                        <!--lista delle chat-->
                         
                     </div>
-                    <!--colonna delle chat-->
+                    <!--colonna sinistra-->
 
                     <!--chat attualmente aperta-->
                     <div class="col-right">
@@ -115,20 +115,20 @@
                         </div>
                         <!--contenitore della chat-->
 
-                        <!--sezione messaggio-->
+                        <!--sezione scrittura messaggio-->
                         <div class="chat-footer d-flex justify-content-center align-items-center">
                             <div class="icon-footer d-flex justify-content-center align-items-center">
                                 <i class="fa-solid fa-face-smile"></i>
                             </div>
                             <input type="text" v-model="input" id="message-area" name="message-area" class="px-3" placeholder="Scrivi un messaggio" >
                             <div v-if="input !== ''" class="icon-footer d-flex justify-content-center align-items-center">
-                                <i onclick="send()" class="fa-solid fa-paper-plane"></i>
+                                <i @click="send()" class="fa-solid fa-paper-plane"></i>
                             </div>
                             <div v-else class="icon-footer d-flex justify-content-center align-items-center">
                                 <i class="fa-solid fa-microphone"></i>
                             </div>
                         </div>
-                        <!--sezione messaggio-->
+                        <!--sezione scrittura messaggio-->
 
                     </div>
                     <!--chat attualmente aperta-->
