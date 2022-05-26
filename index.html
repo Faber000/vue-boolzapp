@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="contact">
                                     <div class="name">{{contact.name}}</div>
-                                    <div class="text"><small class="text-secondary">{{lastMessage(index)}}</small></div>
+                                    <div class="text"><small class="text-secondary">{{getlastMessage(index)}}</small></div>
                                 </div>
                             </div>
                         </div>
@@ -109,8 +109,12 @@
 
                         <!--contenitore della chat-->
                         <div class="chat-box">
-                            <div class="message" v-for="message in contacts[currentIndex].messages">
-                                <div :class="message.status">{{message.message}}</div>
+                            <div class="message" v-for="(message,index) in contacts[currentIndex].messages">
+                                <div :class="message.status">{{message.message}}
+                                    <div class="hour d-flex justify-content-end p-1 text-secondary">
+                                        {{getHourTime(index)}}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!--contenitore della chat-->
@@ -123,7 +127,7 @@
                             <input type="text" v-model="input" id="message-area" name="message-area" class="px-3" placeholder="Scrivi un messaggio" >
                             
                             <div v-if="input !== ''" class="icon-footer d-flex justify-content-center align-items-center">
-                                <i @click="send()" class="fa-solid fa-paper-plane"></i>
+                                <i @click="sendMessage()" class="fa-solid fa-paper-plane"></i>
                             </div>
                             <div v-else class="icon-footer d-flex justify-content-center align-items-center">
                                 <i class="fa-solid fa-microphone"></i>

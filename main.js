@@ -173,11 +173,11 @@ const app = new Vue ({
             this.currentIndex = index;
         },
 
-        send() {
+        sendMessage() {
             obj = {
                 message: this.input,
                 status: 'sent',
-                date: null,
+                date: this.newDate(), 
             }
             
             this.contacts[this.currentIndex].messages.push(obj);
@@ -190,14 +190,31 @@ const app = new Vue ({
             obj = {
                 message: 'ok!',
                 status: 'received',
-                date: null,
+                date: this.newDate(), 
             }
+
             this.contacts[this.currentIndex].messages.push(obj);
         },
     
-        lastMessage(index) {
+        getlastMessage(index) {
             let position = this.contacts[index].messages.length -1;
             return this.contacts[index].messages[position].message;
+        },
+
+        getHourTime(index) {
+            let date = this.contacts[this.currentIndex].messages[index].date;
+            return date.slice(11,16);
+        },
+
+        newDate() {
+            let d = new Date();
+            day = d.getDate();
+            m = d.getMonth();
+            y = d.getFullYear();
+            h = d.getHours();
+            m = d.getMinutes();
+            s = d.getSeconds();
+            return day + "/" + m + "/" + y +" "+ h + ":" + m +":" + s;
         }
     },
 });

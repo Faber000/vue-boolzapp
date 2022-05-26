@@ -135,7 +135,7 @@ i {
     border: none;
 }
 
-.search-bar-div > button{
+.search-bar-div > button {
     width: 60px;
     height: 100%;
     border: none;
@@ -191,4 +191,8 @@ i {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+}
+
+.hour {
+    font-size: 12px;
 }
