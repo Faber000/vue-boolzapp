@@ -196,3 +196,10 @@ i {
 .hour {
     font-size: 12px;
 }
+
+.last-hour {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+}

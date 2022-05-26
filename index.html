@@ -68,7 +68,7 @@
 
                         <!--lista delle chat-->
                         <div class="chats-container">
-                            <div @click="showMessages(index)" v-for="(contact, index) in contacts" class="chat d-flex">
+                            <div @click="showMessages(index)" v-for="(contact, index) in contacts" class="chat d-flex position-relative">
                                 <div class="avatar">
                                     <img class="avatar-img" :src="`img/avatar${contact.avatar}.jpg`" alt="">
                                 </div>
@@ -76,6 +76,7 @@
                                     <div class="name">{{contact.name}}</div>
                                     <div class="text"><small class="text-secondary">{{getlastMessage(index)}}</small></div>
                                 </div>
+                                <div class="hour last-hour">{{getLastHour(index)}}</div>
                             </div>
                         </div>
                         <!--lista delle chat-->

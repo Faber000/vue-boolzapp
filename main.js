@@ -197,8 +197,8 @@ const app = new Vue ({
         },
     
         getlastMessage(index) {
-            let position = this.contacts[index].messages.length -1;
-            return this.contacts[index].messages[position].message;
+            let lastPosition = this.contacts[index].messages.length -1;
+            return this.contacts[index].messages[lastPosition].message;
         },
 
         getHourTime(index) {
@@ -215,6 +215,12 @@ const app = new Vue ({
             m = d.getMinutes();
             s = d.getSeconds();
             return day + "/" + m + "/" + y +" "+ h + ":" + m +":" + s;
+        },
+
+        getLastHour(index) {
+            let lastPosition = this.contacts[index].messages.length -1;
+            let date = this.contacts[index].messages[lastPosition].date;
+            return date.slice(11,16);
         }
     },
 });
