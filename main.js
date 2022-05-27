@@ -202,7 +202,12 @@ const app = new Vue ({
     
         getlastMessage(index) {
             let lastPosition = this.contacts[index].messages.length -1;
-            return this.contacts[index].messages[lastPosition].message;
+            let text = this.contacts[index].messages[lastPosition].message;
+            if(text.length > 35) {
+                return text.slice(0, 35)+"...";
+            } else {
+                return text;
+            }
         },
 
         getHourTime(index) {
