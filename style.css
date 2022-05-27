@@ -81,6 +81,7 @@ body {
     height: calc(100% - 100px);
     background-image: url("img/mine.jpg");
     padding: 80px;
+    overflow-y: auto;
 }
 
 .avatar {
