@@ -4,6 +4,7 @@ const app = new Vue ({
     data: {
         currentIndex: 0,
         input: '',
+        search: '',
         contacts: [
             {
                 name: 'Michele',
@@ -30,7 +31,7 @@ const app = new Vue ({
             {
                 name: 'Fabio',
                 avatar: '_2',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -52,7 +53,7 @@ const app = new Vue ({
             {
                 name: 'Samuele',
                 avatar: '_3',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -74,7 +75,7 @@ const app = new Vue ({
             {
                 name: 'Alessandro B.',
                 avatar: '_4',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -91,7 +92,7 @@ const app = new Vue ({
             {
                 name: 'Alessandro L.',
                 avatar: '_5',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -108,7 +109,7 @@ const app = new Vue ({
             {
                 name: 'Claudia',
                 avatar: '_6',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -130,7 +131,7 @@ const app = new Vue ({
             {
                 name: 'Federico',
                 avatar: '_7',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -147,7 +148,7 @@ const app = new Vue ({
             {
                 name: 'Davide',
                 avatar: '_8',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -196,8 +197,7 @@ const app = new Vue ({
                 }
     
                 this.contacts[index].messages.push(obj);
-            },1000);
-            
+            }, 1000); 
         },
     
         getlastMessage(index) {
@@ -214,6 +214,17 @@ const app = new Vue ({
             let lastPosition = this.contacts[index].messages.length -1;
             let date = this.contacts[index].messages[lastPosition].date;
             return DateTime.fromFormat(date,"dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
-        }
+        },
+
+        filterContacts() {
+			for(let i=0; i < this.contacts.length; i++) {
+                if(this.contacts[i].name.toLowerCase().includes(this.search.toLowerCase()) ) {
+                    this.contacts[i].visible = true; 
+                }
+                else {
+                    this.contacts[i].visible = false;
+               }
+            }
+		},
     },
 });
