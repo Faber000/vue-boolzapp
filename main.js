@@ -1,3 +1,4 @@
+var DateTime = luxon.DateTime;
 const app = new Vue ({
     el: '#app',
     data: {
@@ -177,23 +178,26 @@ const app = new Vue ({
             obj = {
                 message: this.input,
                 status: 'sent',
-                date: this.newDate(), 
+                date: DateTime.now().toFormat("dd/MM/yyyy HH:mm:ss"), 
             }
             
             this.contacts[this.currentIndex].messages.push(obj);
             this.input = '';
 
-            setTimeout(this.receiveMessage, 2000);
+            this.receiveMessage(this.currentIndex);
         },
 
-        receiveMessage() {
-            obj = {
-                message: 'ok!',
-                status: 'received',
-                date: this.newDate(), 
-            }
-
-            this.contacts[this.currentIndex].messages.push(obj);
+        receiveMessage(index) {
+            setTimeout(() => {
+                obj = {
+                    message: 'ok!',
+                    status: 'received',
+                    date: DateTime.now().toFormat("dd/MM/yyyy HH:mm:ss"), 
+                }
+    
+                this.contacts[index].messages.push(obj);
+            },1000);
+            
         },
     
         getlastMessage(index) {
@@ -203,24 +207,13 @@ const app = new Vue ({
 
         getHourTime(index) {
             let date = this.contacts[this.currentIndex].messages[index].date;
-            return date.slice(11,16);
-        },
-
-        newDate() {
-            let d = new Date();
-            day = d.getDate();
-            m = d.getMonth();
-            y = d.getFullYear();
-            h = d.getHours();
-            m = d.getMinutes();
-            s = d.getSeconds();
-            return day + "/" + m + "/" + y +" "+ h + ":" + m +":" + s;
+            return DateTime.fromFormat(date,"dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
         },
 
         getLastHour(index) {
             let lastPosition = this.contacts[index].messages.length -1;
             let date = this.contacts[index].messages[lastPosition].date;
-            return date.slice(11,16);
+            return DateTime.fromFormat(date,"dd/MM/yyyy HH:mm:ss").toFormat("HH:mm");
         }
     },
 });
